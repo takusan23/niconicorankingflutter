@@ -54,19 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
   var rankings_description_list;
   int bottom_nav_select;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      //_counter++;
-      //RSS取得
-      //getWebAPI();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     if (title == null) {
@@ -127,13 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: new Icon(Icons.calendar_today), title: new Text("月間")),
           new BottomNavigationBarItem(
               icon: new Icon(Icons.calendar_today), title: new Text("合計")),
-         ],
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.update),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -164,27 +146,26 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   //メニュークリック
-  void nav_click(int position){
+  void nav_click(int position) {
     setState(() {
-       switch(position){
-         case 0:
-           getWebAPI("hourly");
-           break;
-         case 1:
-           getWebAPI("daily");
-           break;
-         case 2:
-           getWebAPI("weekly");
-           break;
-         case 3:
-           getWebAPI("monthly");
-           break;
-         case 4:
-           getWebAPI("total");
-           break;
-       }
-        bottom_nav_select = position;
+      switch (position) {
+        case 0:
+          getWebAPI("hourly");
+          break;
+        case 1:
+          getWebAPI("daily");
+          break;
+        case 2:
+          getWebAPI("weekly");
+          break;
+        case 3:
+          getWebAPI("monthly");
+          break;
+        case 4:
+          getWebAPI("total");
+          break;
+      }
+      bottom_nav_select = position;
     });
   }
-
 }
