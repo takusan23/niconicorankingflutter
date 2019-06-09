@@ -3,6 +3,7 @@ import 'package:html/parser.dart' show parse;
 import 'package:html/dom.dart' as dom;
 import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String title;
   var rankings_title_list;
   var rankings_description_list;
+  var rankings_link_list;
   int bottom_nav_select;
 
   @override
@@ -62,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (rankings_title_list == null) {
       rankings_title_list = [];
       rankings_description_list = [];
+      rankings_link_list = [];
       bottom_nav_select = 0;
     }
     // This method is rerun every time setState is called, for instance as done
@@ -141,6 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
             .getElementsByTagName("description")[0]
             .getElementsByClassName("nico-description")[0]
             .text);
+        //rankings_link_list.add(rankings[i].getElementsByTagName("link")[0].text);
       });
     }
   }
